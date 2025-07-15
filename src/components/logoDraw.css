@@ -1,0 +1,10 @@
+.logo-container svg path,
+.logo-container svg line,
+.logo-container svg polyline,
+.logo-container svg polygon,
+.logo-container svg circle {
+  fill: none;
+  stroke: #222222;
+  stroke-width: 4;
+  visibility: visible;
+}

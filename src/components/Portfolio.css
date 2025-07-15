@@ -1,0 +1,233 @@
+/* === General Layout === */
+.portfolio-page {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.portfolio-header h1,
+.portfolio-title {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+/* === Navigation Buttons === */
+.nav-buttons,
+.portfolio-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  border: none;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+}
+
+.nav-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.portfolio-counter {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* === Portfolio Card === */
+.portfolio-card {
+  width: 100%;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+  color: #2c3e50;
+}
+
+.portfolio-card.single {
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.portfolio-card h3,
+.card-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+  color: #2c3e50;
+}
+
+/* === Card Content === */
+.card-content {
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* === Category and Description === */
+.category {
+  font-size: 0.9rem;
+  color: #888;
+  font-weight: bold;
+  margin: 0.4rem 0 0.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  color: #444;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* === Buttons === */
+.view-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.view-btn:hover {
+  background-color: #2980b9;
+}
+
+.close-btn {
+  background: #ff7e5f;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* === Screenshot Images === */
+.project-screenshot {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-screenshot:hover {
+  transform: scale(1.05);
+}
+
+/* === Image Gallery === */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 1rem;
+  justify-items: center;
+}
+
+
+.image-gallery-wrapper {
+  overflow-x: auto;
+}
+
+/* === GitHub Link === */
+.github-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #2c3e50;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* === Carousel Wrapper === */
+.portfolio-carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* === Optional: Portfolio Grid View (if used) === */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* === Portfolio Slider === */
+.portfolio-slider {
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.portfolio-thumb {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.7);
+  transition: transform 0.5s ease;
+}
+
+.interactive-header:hover .header-image {
+  transform: scale(1.05);
+}
+
+.header-overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
