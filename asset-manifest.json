@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/your-repo-name/static/css/main.2ebdfe21.css",
+    "main.js": "/your-repo-name/static/js/main.283552d5.js",
+    "static/js/453.653c0216.chunk.js": "/your-repo-name/static/js/453.653c0216.chunk.js",
+    "static/media/008.jpg": "/your-repo-name/static/media/008.e9db8bbce0aea6c3486a.jpg",
+    "static/media/009.jpg": "/your-repo-name/static/media/009.d73e358fcc00a1c64e2f.jpg",
+    "static/media/img2.png": "/your-repo-name/static/media/img2.7a60cd633d5634b5ec5c.png",
+    "static/media/logoimg.png": "/your-repo-name/static/media/logoimg.2e0a65f5388f9e849912.png",
+    "static/media/loan.jpeg": "/your-repo-name/static/media/loan.6bcfb13556dfd4b6421e.jpeg",
+    "static/media/digital.jpeg": "/your-repo-name/static/media/digital.1851188919402c0065f3.jpeg",
+    "static/media/Deposit.jpeg": "/your-repo-name/static/media/Deposit.0175fafe8c8f6bee63e7.jpeg",
+    "static/media/summary.jpeg": "/your-repo-name/static/media/summary.2db1e60489643cb3ff4d.jpeg",
+    "static/media/finance.jpeg": "/your-repo-name/static/media/finance.d5e9002d9a697d6d2890.jpeg",
+    "static/media/branch.jpeg": "/your-repo-name/static/media/branch.94c1e93721930c645567.jpeg",
+    "static/media/002.jpg": "/your-repo-name/static/media/002.368866ccac5c43edbfc9.jpg",
+    "static/media/004.jpg": "/your-repo-name/static/media/004.5516d5ce2c60eca4981c.jpg",
+    "static/media/001.jpg": "/your-repo-name/static/media/001.76ce4edf5bb367e11e4e.jpg",
+    "static/media/007.jpg": "/your-repo-name/static/media/007.9784d7083ca12e25f389.jpg",
+    "static/media/003.jpg": "/your-repo-name/static/media/003.938322af35afc83ab7b6.jpg",
+    "static/media/006.jpg": "/your-repo-name/static/media/006.9b360ddb3f2540f0df4b.jpg",
+    "static/media/005.jpg": "/your-repo-name/static/media/005.f73e4768f98a075aead5.jpg",
+    "static/media/file22.svg": "/your-repo-name/static/media/file22.be7cdc335c2014dc3199703ff7577bbf.svg",
+    "index.html": "/your-repo-name/index.html",
+    "main.2ebdfe21.css.map": "/your-repo-name/static/css/main.2ebdfe21.css.map",
+    "main.283552d5.js.map": "/your-repo-name/static/js/main.283552d5.js.map",
+    "453.653c0216.chunk.js.map": "/your-repo-name/static/js/453.653c0216.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2ebdfe21.css",
+    "static/js/main.283552d5.js"
+  ]
+}
