@@ -175,7 +175,7 @@ const Contact = () => {
     name: '',
     email: '',
     message: '',
-    department: ''
+   
   });
   const [status, setStatus] = useState({ message: '', error: false });
   const [isSubmitting, setIsSubmitting] = useState(false);

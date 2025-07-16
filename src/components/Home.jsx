@@ -3,6 +3,7 @@ import anime from 'animejs/lib/anime.es.js';
 import { motion } from 'framer-motion';
 import { ReactComponent as Logo } from './file22.svg';
 import img from './img2.png';
+import TypingEffect from './TypingEffect';
 // ;
 import './Home.css';
 import './logoDraw.css'; // optional for stroke styling
@@ -11,6 +12,8 @@ import Portfolio from './Portfolio'
 function Home() {
   const svgRef = useRef(null);
   const [showPortfolio, setShowPortfolio] = useState(false);
+   // State to control visibility of elements that appear after typing
+  const [typingComplete, setTypingComplete] = useState(false); 
 //   function handlePortfolio(){
 //     return {showPortfolio ? <Portfolio />:""}
 //   }
@@ -46,6 +49,9 @@ const handleToggle = () => {
     });
   }, []);
 
+  const introText = "Welcome! 👋 I'm  Fekir,";
+
+  const callToActionText = "a versatile Data Analyst and a passionate developer creating impactful Web and Mobile applications. and Dive in to explore how I transform data into insights and ideas into intuitive digital experiences."
   return (
     <div className="portfolio-container">
       <main className="main-content">
@@ -77,41 +83,26 @@ const handleToggle = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <p className="intro-text">I am</p>
+   <p className="intro-text">
+                  <TypingEffect
+                    text={introText}
+                    delay={50} // Adjust typing speed
+                    // No onComplete here if you want it to flow directly into the next line
+                  />
+                </p>
 
-        <motion.h2
-          className="profession"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 1 }}
-        >
-          <span className="highlighted-keyword">Interactive Data Analyst</span>,
-          and I believe every dataset holds a{" "}
-          <motion.span
-            whileHover={{ color: "#00bcd4", scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="emphasize"
-          >
-            unique story
-          </motion.span>{" "}
-          waiting to be told. I specialize in{" "}
-          <motion.span
-            whileHover={{ color: "#4caf50", scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="emphasize"
-          >
-            transforming raw numbers
-          </motion.span>{" "}
-          into compelling narratives and actionable insights. Let’s unlock the{" "}
-          <motion.span
-            whileHover={{ color: "#ff9800", scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="emphasize"
-          >
-            hidden potential
-          </motion.span>{" "}
-          within your data to drive smarter decisions and shape a more informed future.
-        </motion.h2>
+                {/* Typing Effect for Profession Text (can start after intro, or slightly overlapping) */}
+                {/* You might use a state to chain these, or just rely on delay for simpler cases */}
+             
+
+                {/* Typing Effect for Call to Action */}
+                <p className="call-to-action-text"> {/* Add a class for specific styling if needed */}
+                  <TypingEffect
+                    text={callToActionText}
+                    delay={35} // Another speed
+                  />
+                </p>
+
 
         {showPortfolio && (
           <motion.div

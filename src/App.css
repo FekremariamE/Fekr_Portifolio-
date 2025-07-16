@@ -1,18 +1,29 @@
+/* Universal Box-Sizing for consistency */
+html {
+  box-sizing: border-box;
+  font-size: 16px; /* Base font size for rem calculations */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
 /* General Styles */
 body, html {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
   color: #333;
-  overflow-y: auto;
+  /* Removed overflow-y: auto; here to avoid double scrollbars. 
+     The .portfolio-container handles scroll for its content. */
 }
 
 .portfolio-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  overflow: auto;
+  min-height: 100vh; /* Ensures container takes at least full viewport height */
   background-color: #4a4946;
+  overflow-x: hidden; /* Prevent horizontal scrollbar caused by overflowing content */
 }
 
 /* Header Styles */
@@ -20,55 +31,115 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
+  padding: 1.25rem 3.125rem; /* 20px 50px converted to rem */
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky; /* Make header sticky */
+  top: 0;
+  z-index: 1000; /* Ensure header is on top of other content */
 }
 
 .name-title h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: clamp(1.25rem, 2.5vw + 0.5rem, 1.5rem); /* Fluid font size */
   font-weight: 700;
 }
 
 .name-title p {
-  margin: 5px 0 0 0;
-  font-size: 12px;
+  margin: 0.3125rem 0 0 0; /* 5px converted to rem */
+  font-size: clamp(0.75rem, 1.5vw + 0.2rem, 0.8rem); /* Fluid font size */
   color: #777;
 }
 
-.main-nav ul {
+/* Main Navigation Styles */
+.main-nav {
+  /* No specific width needed here, flex item will adjust */
+  padding: 0; /* Remove padding here, handled by ul */
+  background-color: transparent; /* Background on ul for sticky effect */
+  backdrop-filter: none; /* Applied to ul for better control */
+  box-shadow: none; /* Applied to ul */
+  position: static; /* Remove sticky from here, header is sticky */
+  top: unset;
+  z-index: unset;
+  border-bottom: none;
+}
+
+.nav-list {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-   display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  gap: 1.5rem; /* Spacing between nav items */
 }
 
-.main-nav li {
-  margin-left: 30px;
-  display: flex;
+.nav-list li {
+  display: flex; /* Ensure li items are flex containers for alignment */
 }
 
-.main-nav a {
+.nav-link {
   text-decoration: none;
   color: #333;
+  padding: 0.6rem 1.2rem;
+  font-size: clamp(0.9rem, 1.5vw + 0.2rem, 1rem); /* Fluid font size */
   font-weight: 600;
-  font-size: 14px;
   letter-spacing: 1px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.main-nav a:hover {
+.nav-link:hover {
   color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1); /* Subtle hover background */
+  transform: translateY(-1px); /* Slight lift on hover */
+}
+
+.nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); /* Branded focus ring */
+}
+
+/* Mobile Navigation Toggle (Hamburger Icon) */
+.nav-toggle {
+  display: none; /* Hidden by default on larger screens */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1001; /* Above header content */
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mobile Nav Open State */
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
 }
 
 /* Main Content & Hero Section */
 .main-content {
-  
+  flex: 1; /* Allows main-content to grow and take available space */
   display: flex;
   flex-direction: column;
   background-color: #4a4946;
-
 }
 
 .hero-section {
@@ -76,54 +147,60 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px 0;
+  padding: 3.125rem 0; /* 50px converted to rem */
+  min-height: calc(100vh - var(--header-height, 80px) - var(--footer-height, 60px)); /* Account for header/footer */
 }
 
 .hero-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1200px; /* Maximum content width */
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 1.25rem; /* 20px converted to rem */
 }
 
 .hero-content {
   display: flex;
   align-items: center;
   gap: 2rem;
+  flex-wrap: wrap; /* Allow content to wrap on smaller screens */
 }
 
-/* 70% Text Column */
+/* Text Column */
 .hero-text {
-  flex: 0 0 70%;
+  flex: 1 1 65%; /* Adjusted flex-basis slightly for better flow */
+  min-width: 300px; /* Ensure text content doesn't get too squished */
   color: white;
 }
 
 .hero-text p {
-  font-size: 24px;
+  font-size: clamp(1.2rem, 2.5vw + 0.5rem, 1.5rem); /* Fluid font size */
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem; /* 10px converted to rem */
 }
 
 .hero-text h2 {
-  font-size: 24px;
+  font-size: clamp(1.8rem, 4vw + 0.8rem, 2.5rem); /* Fluid font size */
   font-weight: 700;
-  margin: 0 0 30px 0;
-  line-height: 1.6;
+  margin: 0 0 1.875rem 0; /* 30px converted to rem */
+  line-height: 1.3; /* Slightly tighter line height for large text */
 }
 
-/* 30% Image Column */
+/* Image Column */
 .hero-image {
-  flex: 0 0 30%;
+  flex: 1 1 30%; /* Adjusted flex-basis */
+  min-width: 250px; /* Minimum width for the image container */
   display: flex;
   justify-content: center;
+  align-items: center; /* Vertically center image if container is taller */
 }
 
 .hero-image img {
   width: 100%;
-  height: auto;
-  max-width: 500px;
+  height: auto; /* Maintain aspect ratio */
+  max-width: 500px; /* Max size for the image itself */
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Ensures image covers area while maintaining aspect ratio */
 }
 
 /* Button Styles */
@@ -131,14 +208,15 @@ body, html {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 12px 30px;
-  font-size: 16px;
+  padding: 0.75rem 1.875rem; /* 12px 30px converted to rem */
+  font-size: clamp(0.9rem, 1.5vw + 0.2rem, 1rem); /* Fluid font size */
   font-weight: 600;
   cursor: pointer;
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Essential for padding to work correctly */
 }
 
 .portfolio-btn:hover {
@@ -147,84 +225,139 @@ body, html {
 
 /* Footer Styles */
 .footer {
-  padding: 20px;
+  padding: 1.25rem; /* 20px converted to rem */
   text-align: center;
-  font-size: 12px;
+  font-size: clamp(0.75rem, 1.5vw + 0.2rem, 0.8rem); /* Fluid font size */
   color: #777;
-  background-color:#4a4946 ;
+  background-color: #4a4946;
   border-top: 1px solid #eee;
 }
 
 .footer p {
-  margin: 5px 0;
+  margin: 0.3125rem 0; /* 5px converted to rem */
   color: white;
   font-family: sans-serif;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+/* --- Responsive Adjustments --- */
+
+/* Small desktop / Large tablets (992px and below) */
+@media (max-width: 992px) {
+  .header {
+    padding: 1rem 2rem;
+  }
   .hero-content {
-    flex-direction: column;
+    flex-direction: column; /* Stack columns on smaller desktops/tablets */
+    text-align: center; /* Center text when stacked */
   }
-  
-  .hero-text, 
+
+  .hero-text,
   .hero-image {
-    flex: 0 0 100%;
+    flex: 1 1 100%; /* Take full width when stacked */
+    max-width: 100%; /* Ensure they don't exceed container */
   }
-  
+
   .hero-image {
     margin-top: 2rem;
   }
-  
+
   .hero-image img {
-    max-width: 100%;
+    max-width: 80%; /* Adjust max-width for stacked image */
+  }
+
+  .portfolio-btn {
+    margin: 0 auto; /* Center button when text is centered */
   }
 }
-.main-nav {
-  width: 100%;
-  padding: 1rem 0.5rem;
-  background-color: rgba(255, 255, 255, 0.8); /* Soft translucent background */
-  backdrop-filter: blur(10px); /* Glassmorphism effect */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* Softer, larger shadow */
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Subtle bottom border */
+
+/* Tablets (portrait) and large phones (768px and below) */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+
+  .name-title h1 {
+    font-size: 1.3rem;
+  }
+
+  .name-title p {
+    font-size: 0.7rem;
+  }
+
+  .nav-list {
+    display: none; /* Hide traditional nav */
+    flex-direction: column;
+    position: absolute;
+    top: var(--header-height, 70px); /* Position below header */
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    text-align: center;
+    gap: 1rem;
+    z-index: 999;
+  }
+
+  .nav-list.open {
+    display: flex; /* Show nav when open */
+  }
+
+  .nav-toggle {
+    display: flex; /* Show hamburger icon */
+  }
+
+  .nav-link {
+    padding: 0.8rem 1rem;
+    width: 100%; /* Make links fill width */
+    font-size: 1.1rem;
+  }
+
+  .hero-section {
+    padding: 2.5rem 0;
+  }
+
+  .hero-text h2 {
+    font-size: clamp(1.5rem, 5vw + 0.5rem, 2rem);
+  }
+
+  .hero-text p {
+    font-size: clamp(1rem, 3vw + 0.3rem, 1.3rem);
+  }
+
+  .hero-image {
+    margin-top: 1.5rem;
+  }
 }
 
-.nav-list {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-list li {
-  display: flex;
-}
-
-.nav-link {
-  background-color: transparent;
-  border: none;
-  color: #1a1a1a;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.nav-link:hover {
-  color: #0d6efd;
-  background-color: rgba(13, 110, 253, 0.1); /* Subtle hover background */
-  transform: translateY(-1px); /* Slight lift on hover */
-}
-
-.nav-link:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.3); /* Branded focus ring */
+/* Small phones (480px and below) */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.8rem 1rem;
+  }
+  .name-title h1 {
+    font-size: 1.2rem;
+  }
+  .name-title p {
+    font-size: 0.65rem;
+  }
+  .hero-section {
+    padding: 2rem 0;
+  }
+  .hero-text {
+    padding: 0 1rem; /* Add horizontal padding to text */
+  }
+  .hero-text h2 {
+    font-size: clamp(1.3rem, 6vw + 0.3rem, 1.8rem);
+  }
+  .hero-text p {
+    font-size: clamp(0.9rem, 3.5vw + 0.2rem, 1.1rem);
+  }
+  .portfolio-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .footer {
+    padding: 1rem;
+  }
 }

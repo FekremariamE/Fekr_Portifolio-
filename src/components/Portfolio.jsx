@@ -20,6 +20,20 @@ import summary from './screenshot/Dashboard/summary.jpeg'
 import finance from './screenshot/Dashboard/finance.jpeg'
 import branch from './screenshot/Dashboard/branch.jpeg'
 
+import ML1 from './screenshot/Machine-Learning/ML1.jpeg'
+import ML2 from './screenshot/Machine-Learning/ML2.jpeg'
+
+import MOH1 from './screenshot/MOH/MOH1.jpeg'
+import MOH2 from './screenshot/MOH/MOH2.jpeg'
+import MOH3 from './screenshot/MOH/MOH3.jpeg'
+import MOH4 from './screenshot/MOH/MOH4.jpeg'
+import MOH5 from './screenshot/MOH/MOH5.jpeg'
+import MOH6 from './screenshot/MOH/MOH6.jpeg'
+import MOH7 from './screenshot/MOH/MOH7.jpeg'
+
+
+
+
 
 function Portfolio() {
   const portfolioItems = [
@@ -32,13 +46,31 @@ function Portfolio() {
       headers: summary,
       github: "https://github.com/FekremariamE",
     },
+     {
+      id: 6,
+      title: "Ministry of Health OTC",
+      description: "A centralized web platform for Ethiopia's Ministry of Health (MOH) designed to monitor, manage, and report cash collections and payment transactions across diverse healthcare service points.",
+      category: "Web Development",
+      images: [MOH7, MOH6, MOH1, MOH2, MOH3,MOH5],
+      headers: img8,
+      github: "https://github.com/yourusername/marketing-analytics",
+    },
+      {
+      id: 5,
+      title: "Android Healthcare System",
+      description: "An interactive platform that improves doctor-patient communication through real-time messaging, appointment booking, and secure medical info sharing",
+      category: "Mobile App Development",
+      images: [img4, img1, img2, img3, img5,img7],
+      headers: img9,
+      github: "https://github.com/yourusername/marketing-analytics",
+    },
     {
       id: 2,
-      title: "Customer Segmentation Model",
-      description: "Machine learning model to categorize customers",
+      title: "Tesla Stock Price Prediction",
+      description: "Machine learning model to Predict ",
       category: "Machine Learning",
-      images: ["/screenshots/segmentation1.png", "/screenshots/segmentation2.png"],
-      headers: img1,
+      images: [ML1, ML2,ML1, ML2,ML1, ML2],
+      headers: ML2,
       github: "https://github.com/yourusername/customer-segmentation",
     },
     {
@@ -59,24 +91,8 @@ function Portfolio() {
       headers: img1,
       github: "https://github.com/yourusername/marketing-analytics",
     },
-    {
-      id: 5,
-      title: "Android Healthcare System",
-      description: "An interactive platform that improves doctor-patient communication through real-time messaging, appointment booking, and secure medical info sharing",
-      category: "Mobile App Development",
-      images: [img4, img1, img2, img3, img5,img7],
-      headers: img9,
-      github: "https://github.com/yourusername/marketing-analytics",
-    },
-    {
-      id: 6,
-      title: "Ministry of Health OTC",
-      description: "A centralized web platform for Ethiopia's Ministry of Health (MOH) designed to monitor, manage, and report cash collections and payment transactions across diverse healthcare service points.",
-      category: "Web Development",
-      images: [img4, img1, img2, img3, img5],
-      headers: img8,
-      github: "https://github.com/yourusername/marketing-analytics",
-    },
+  
+   
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isProjectOpen, setIsProjectOpen] = useState(false); // <-- new
