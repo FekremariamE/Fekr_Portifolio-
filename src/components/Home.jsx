@@ -8,6 +8,7 @@ import TypingEffect from './TypingEffect';
 import './Home.css';
 import './logoDraw.css'; // optional for stroke styling
 import Portfolio from './Portfolio'
+import ChatAssistant from './ChatAssistant';
 
 function Home() {
   const svgRef = useRef(null);
@@ -56,6 +57,7 @@ const handleToggle = () => {
     <div className="portfolio-container">
       <main className="main-content">
         <section className="hero-section">
+          <ChatAssistant />
           <div className="hero-layout">
             <div className="logo-container">
               <svg style={{ width: '100%', height: '100%' }}>

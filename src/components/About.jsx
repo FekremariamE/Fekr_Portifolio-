@@ -1,7 +1,8 @@
 import React from "react";
 import "./About.css";
-
+//import { ThemeContext } from "./ThemeContext";
 const About = () => {
+  // const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <div className="about-container">
       <header className="about-header">

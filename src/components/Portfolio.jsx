@@ -44,7 +44,7 @@ function Portfolio() {
       category: "Data Analysis",
       images: [summary,loan, digital, Deposit,finance,branch],
       headers: summary,
-      github: "https://github.com/FekremariamE",
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
     },
      {
       id: 6,
@@ -53,7 +53,7 @@ function Portfolio() {
       category: "Web Development",
       images: [MOH7, MOH6, MOH1, MOH2, MOH3,MOH5],
       headers: img8,
-      github: "https://github.com/yourusername/marketing-analytics",
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
     },
       {
       id: 5,
@@ -62,16 +62,16 @@ function Portfolio() {
       category: "Mobile App Development",
       images: [img4, img1, img2, img3, img5,img7],
       headers: img9,
-      github: "https://github.com/yourusername/marketing-analytics",
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
     },
     {
       id: 2,
       title: "Tesla Stock Price Prediction",
-      description: "Machine learning model to Predict ",
+      description: "This project uses historical Tesla stock data to build a machine learning model that predicts future closing prices. It includes data cleaning, visualization, feature engineering, and regression modeling to forecast trends in TSLA stock.",
       category: "Machine Learning",
       images: [ML1, ML2,ML1, ML2,ML1, ML2],
       headers: ML2,
-      github: "https://github.com/yourusername/customer-segmentation",
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
     },
     {
       id: 3,
@@ -80,7 +80,7 @@ function Portfolio() {
       category: "Data Science",
       images: ["/screenshots/forecast1.png", "/screenshots/forecast2.png"],
       headers: img1,
-      github: "https://github.com/yourusername/sales-forecast",
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
     },
     {
       id: 4,
@@ -89,7 +89,7 @@ function Portfolio() {
       category: "Business Intelligence",
       images: ["/screenshots/marketing1.png", "/screenshots/marketing2.png", "/screenshots/marketing3.png"],
       headers: img1,
-      github: "https://github.com/yourusername/marketing-analytics",
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
     },
   
    
