@@ -4,10 +4,10 @@ previews:
 
 services:
   - type: web
-    name: my-react-app                 # change to your service name
+    name: Fekre_Portifolio-                # change to your service name
     runtime: static
-    repo: https://github.com/your-org/your-repo  # optional, defaults to repo containing this file
-    branch: main                       # change if needed
+    repo: https://github.com/FekremariamE/Fekr_Portifolio-  # optional, defaults to repo containing this file
+    branch: master                       # change if needed
     buildCommand: npm install && npm run build  # or: yarn && yarn build
     staticPublishPath: ./build         # CRA -> ./build ; Vite -> ./dist
     plan: free
