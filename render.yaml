@@ -1,32 +1,24 @@
 # render.yaml - Static site (Create React App / Vite)
-previews:
-  generation: automatic
 
 services:
   - type: web
-    name: Fekre_Portifolio-                # change to your service name
+    name: Fekre_Portfolio
     runtime: static
-    repo: https://github.com/FekremariamE/Fekr_Portifolio-  # optional, defaults to repo containing this file
-    branch: master                       # change if needed
-    buildCommand: npm install && npm run build  # or: yarn && yarn build
-    staticPublishPath: ./build         # CRA -> ./build ; Vite -> ./dist
-    plan: free
-    previews:
-      generation: automatic
-    buildFilter:
-      paths:
-        - src/**/*.js
-        - package.json
-      ignoredPaths:
-        - src/**/*.test.js
+    repo: https://github.com/FekremariamE/Fekr_Portifolio-  # optional, remove if deploying manually
+    branch: master
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build   # CRA -> ./build ; Vite -> ./dist
+
     headers:
       - path: /*
         name: Cache-Control
         value: public, max-age=0, must-revalidate
+
     routes:
       - type: rewrite
-        source: /app/*
+        source: /*
         destination: /index.html
+
     envVars:
       - key: REACT_APP_API_URL
         value: https://api.example.com
