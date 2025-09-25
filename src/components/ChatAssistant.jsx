@@ -4,8 +4,9 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { portfolioData } from './PortifolioData';// Import your data
 // Assuming you still have your CSS file for styling
  import './ChatAssistant.css';
+ import config from '../config.json'
 
-const API_KEY = "AIzaSyDh8uD1sq6qPTUWBxYOeGbL1Bktp85i924"
+const API_KEY = config.API_KEY
 
 if (!API_KEY) {
   console.error("Gemini API Key is not set. Please set REACT_APP_GEMINI_API_KEY in your .env file.");
