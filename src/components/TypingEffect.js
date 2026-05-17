@@ -11,20 +11,21 @@ const TypingEffect = ({ text, delay = 50, infinite = false, onComplete }) => {
         setCurrentText(prevText => prevText + text[currentIndex]);
         setCurrentIndex(prevIndex => prevIndex + 1);
       }, delay);
-      return () => clearTimeout(timeout);
+      return () => clearTimeout(timeout); // Cleanup on unmount or re-render
     } else {
+      // Typing is complete
       if (onComplete) {
-        onComplete();
+        onComplete(); // Call callback when typing finishes
       }
       if (infinite) {
         const resetTimeout = setTimeout(() => {
           setCurrentText('');
           setCurrentIndex(0);
-        }, 2000);
+        }, 2000); // Wait 2 seconds before re-typing if infinite
         return () => clearTimeout(resetTimeout);
       }
     }
-  }, [currentIndex, delay, infinite, text, onComplete]);
+  }, [currentIndex, delay, infinite, text, onComplete]); // Add onComplete to dependencies
 
   return <>{currentText}</>;
 };

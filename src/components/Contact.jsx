@@ -29,6 +29,14 @@ const ContactCard = styled.div`
 
 const ContactFormSection = styled.div`
   padding: 3rem;
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem 1rem;
+  }
 `;
 
 const ContactInfoSection = styled.div`
@@ -38,6 +46,16 @@ const ContactInfoSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem 1rem;
+  }
 `;
 
 const Title = styled.h1`
@@ -78,6 +96,10 @@ const Input = styled.input`
     outline: none;
     border-color: #667eea;
   }
+
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -94,21 +116,12 @@ const TextArea = styled.textarea`
     outline: none;
     border-color: #667eea;
   }
-`;
-const SelectField = styled.select`
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  height: 48px;
-  background-color: #fff;
-  transition: border-color 0.3s;
 
-  &:focus {
-    outline: none;
-    border-color: #667eea;
-  }`;
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    min-height: 120px;
+  }
+`;
 
 const SubmitButton = styled.button`
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -133,6 +146,11 @@ const SubmitButton = styled.button`
     transform: none;
     box-shadow: none;
   }
+
+  @media (max-width: 480px) {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
 `;
 
 const InfoTitle = styled.h3`
@@ -150,12 +168,23 @@ const InfoTitle = styled.h3`
     height: 3px;
     background: white;
   }
+
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    padding-bottom: 0.5rem;
+  }
 `;
 
 const InfoItem = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 `;
 
 const Icon = styled.div`
@@ -175,7 +204,6 @@ const Contact = () => {
     name: '',
     email: '',
     message: '',
-   
   });
   const [status, setStatus] = useState({ message: '', error: false });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -194,7 +222,6 @@ const Contact = () => {
     setStatus({ message: 'Sending...', error: false });
 
     try {
-      //console.log("formData",formData)
       const response = await axios.post('http://localhost:5000/contact', formData);
 
       if (response.status === 200) {
@@ -254,7 +281,6 @@ const Contact = () => {
                   disabled={isSubmitting}
                 />
               </FormGroup>
-        
 
               <FormGroup>
                 <Label htmlFor="message">Your Message</Label>
@@ -268,7 +294,6 @@ const Contact = () => {
                   disabled={isSubmitting}
                 />
               </FormGroup>
-
 
               <SubmitButton
                 type="submit"

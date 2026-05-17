@@ -8,7 +8,7 @@ const Service = () => {
       <h1>Services That I Can Provide to You</h1>
   
  
-      <div className="service-list">
+      <div className="service-list" >
         <motion.div
           className="hero-text"
           initial={{ opacity: 0, x: -50 }}

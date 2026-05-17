@@ -1,0 +1,162 @@
+/* src/components/ChatAssistant.css */
+
+.chat-toggle-button {
+  position: fixed;
+  bottom: 30px; /* Slightly closer to the bottom */
+  right: 30px; /* Slightly closer to the right */
+  background: linear-gradient(45deg, #007bff, #0056b3); /* Gradient background for depth */
+  color: white;
+  border: none;
+  border-radius: 50%; /* Perfect circle */
+  width: 65px; /* Slightly larger for presence */
+  height: 65px;
+  font-size: 32px; /* Larger icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3); /* Softer, color-coordinated shadow */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother, more comprehensive transition */
+  z-index: 1000;
+  overflow: hidden; /* Ensures any overflow from inner elements is hidden */
+  will-change: transform, box-shadow; /* Optimize for animation performance */
+}
+
+.chat-toggle-button:hover {
+  background: linear-gradient(45deg, #0056b3, #003f80); /* Darker gradient on hover */
+  transform: translateY(-5px) scale(1.05); /* Lifts and slightly scales */
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4); /* More pronounced shadow on hover */
+}
+
+.chat-toggle-button:active {
+  transform: translateY(-2px) scale(0.98); /* Slight push down on click */
+  box-shadow: 0 3px 6px rgba(0, 123, 255, 0.2); /* Reduced shadow on active */
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 90px; /* Adjust based on button size */
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background-color: #ffffff; /* White background */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 999;
+  transform-origin: bottom right;
+  animation: fadeInScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.chat-header {
+  background-color: #f0f2f5; /* Light gray header */
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.chat-header button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #666;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1; /* Aligns the 'x' properly */
+  transition: color 0.2s ease;
+}
+
+.chat-header button:hover {
+  color: #000;
+}
+
+.chat-body {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #fdfdfd; /* Slightly off-white for body */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  background-color: #007bff; /* User message blue */
+  color: white;
+  border-bottom-right-radius: 5px; /* Tapered corner */
+}
+
+.chat-message.assistant {
+  align-self: flex-start;
+  background-color: #e2eafc; /* Lighter blue for assistant */
+  color: #333;
+  border-bottom-left-radius: 5px; /* Tapered corner */
+}
+
+.chat-input {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
+
+.chat-input input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 1em;
+  margin-right: 10px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-input input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.chat-input button {
+  background-color: #28a745; /* Green send button */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.chat-input button:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: translateY(-1px);
+}
