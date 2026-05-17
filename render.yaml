@@ -1,0 +1,24 @@
+# render.yaml - Static site (Create React App / Vite)
+
+services:
+  - type: web
+    name: Fekre_Portfolio
+    runtime: static
+    repo: https://github.com/FekremariamE/Fekr_Portifolio-  # optional, remove if deploying manually
+    branch: master
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build   # CRA -> ./build ; Vite -> ./dist
+
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://api.example.com

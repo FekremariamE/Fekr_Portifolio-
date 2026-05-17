@@ -1,8 +1,44 @@
 // src/components/ChatAssistant.jsx
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import { portfolioData } from './PortifolioData';// Import your data
 // Assuming you still have your CSS file for styling
  import './ChatAssistant.css';
+=======
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import { portfolioData } from './PortifolioData';// Import your data
+// Assuming you still have your CSS file for styling
+ import './ChatAssistant.css';
+ import config from '../config.json'
+
+const API_KEY = config.API_KEY
+
+if (!API_KEY) {
+  console.error("Gemini API Key is not set. Please set REACT_APP_GEMINI_API_KEY in your .env file.");
+}
+
+const genAI = new GoogleGenerativeAI(API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+// This function creates the context prompt for the AI.
+const createPortfolioPrompt = () => {
+  const { name, role, bio, projects, skills } = portfolioData;
+
+  let prompt = `You are an AI assistant designed to answer questions about ${name}, a ${role}. Your responses should be helpful, friendly, and professional. You should only use the provided information to answer questions.`;
+
+  prompt += `\n\nHere is some information about me:\n`;
+  prompt += `- **Bio:** ${bio}\n`;
+  prompt += `- **Skills:** ${skills.join(", ")}\n`;
+  prompt += `- **Projects:**\n`;
+  projects.forEach((proj, index) => {
+    // Corrected line: combines title, type, and description
+    prompt += `  ${index + 1}. **${proj.title}** (${proj.type}): ${proj.description}\n`;
+    prompt += `     - Technologies: ${proj.technologies.join(", ")}\n`;
+  });
+
+  return prompt;
+};
+>>>>>>> 771c07e11303f62d359085b2c247163fbe615178
 
 const ChatAssistant = () => {
   const [open, setOpen] = useState(false);
@@ -31,6 +67,7 @@ const ChatAssistant = () => {
     setIsLoading(true);
 
     try {
+<<<<<<< HEAD
       const response = await fetch('http://localhost:5000/chat', {
         method: 'POST',
         headers: {
@@ -45,6 +82,14 @@ const ChatAssistant = () => {
 
       const data = await response.json();
       const botReply = { role: 'assistant', content: data.reply };
+=======
+      const promptWithContext = `${createPortfolioPrompt()}\n\nUser Question: ${input}`;
+      
+      const result = await model.generateContent(promptWithContext);
+      const botReplyText = result.response.text();
+
+      const botReply = { role: 'assistant', content: botReplyText };
+>>>>>>> 771c07e11303f62d359085b2c247163fbe615178
       setMessages((prev) => [...prev, botReply]);
 
     } catch (err) {

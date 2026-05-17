@@ -44,7 +44,7 @@ function Portfolio() {
       category: "Data Analysis",
       images: [summary,loan, digital, Deposit,finance,branch],
       headers: summary,
-      github: "https://github.com/FekremariamE",
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
     },
      {
       id: 6,
@@ -53,7 +53,11 @@ function Portfolio() {
       category: "Web Development",
       images: [MOH7, MOH6, MOH1, MOH2, MOH3,MOH5],
       headers: img8,
+<<<<<<< HEAD
       github: "https://github.com/FekremariamE",
+=======
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
+>>>>>>> 771c07e11303f62d359085b2c247163fbe615178
     },
       {
       id: 5,
@@ -62,7 +66,11 @@ function Portfolio() {
       category: "Mobile App Development",
       images: [img4, img1, img2, img3, img5,img7],
       headers: img9,
+<<<<<<< HEAD
       github: "https://github.com/FekremariamE",
+=======
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
+>>>>>>> 771c07e11303f62d359085b2c247163fbe615178
     },
     {
       id: 2,
@@ -71,7 +79,11 @@ function Portfolio() {
       category: "Machine Learning",
       images: [ML1, ML2,ML1, ML2,ML1, ML2],
       headers: ML2,
+<<<<<<< HEAD
       github: "https://github.com/FekremariamE",
+=======
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
+>>>>>>> 771c07e11303f62d359085b2c247163fbe615178
     },
     {
       id: 3,
@@ -80,7 +92,11 @@ function Portfolio() {
       category: "Data Science",
       images: ["/screenshots/forecast1.png", "/screenshots/forecast2.png"],
       headers: img1,
+<<<<<<< HEAD
       github: "https://github.com/FekremariamE",
+=======
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
+>>>>>>> 771c07e11303f62d359085b2c247163fbe615178
     },
     {
       id: 4,
@@ -89,7 +105,11 @@ function Portfolio() {
       category: "Business Intelligence",
       images: ["/screenshots/marketing1.png", "/screenshots/marketing2.png", "/screenshots/marketing3.png"],
       headers: img1,
+<<<<<<< HEAD
       github: "https://github.com/FekremariamE",
+=======
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
+>>>>>>> 771c07e11303f62d359085b2c247163fbe615178
     },
   
    
