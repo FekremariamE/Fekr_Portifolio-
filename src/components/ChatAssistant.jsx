@@ -1,10 +1,10 @@
 // src/components/ChatAssistant.jsx
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
-import { portfolioData } from './PortifolioData';// Import your data
+// <<<<<<< HEAD
+// import { portfolioData } from './PortifolioData';// Import your data
 // Assuming you still have your CSS file for styling
- import './ChatAssistant.css';
-=======
+ //import './ChatAssistant.css';
+// =======
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { portfolioData } from './PortifolioData';// Import your data
 // Assuming you still have your CSS file for styling
@@ -38,7 +38,7 @@ const createPortfolioPrompt = () => {
 
   return prompt;
 };
->>>>>>> 771c07e11303f62d359085b2c247163fbe615178
+// >>>>>>> 771c07e11303f62d359085b2c247163fbe615178
 
 const ChatAssistant = () => {
   const [open, setOpen] = useState(false);
@@ -67,7 +67,7 @@ const ChatAssistant = () => {
     setIsLoading(true);
 
     try {
-<<<<<<< HEAD
+// <<<<<<< HEAD
       const response = await fetch('http://localhost:5000/chat', {
         method: 'POST',
         headers: {
@@ -80,16 +80,16 @@ const ChatAssistant = () => {
         throw new Error('Failed to get response');
       }
 
-      const data = await response.json();
-      const botReply = { role: 'assistant', content: data.reply };
-=======
+      // const data = await response.json();
+      // const botReply = { role: 'assistant', content: data.reply };
+// =======
       const promptWithContext = `${createPortfolioPrompt()}\n\nUser Question: ${input}`;
       
       const result = await model.generateContent(promptWithContext);
       const botReplyText = result.response.text();
 
       const botReply = { role: 'assistant', content: botReplyText };
->>>>>>> 771c07e11303f62d359085b2c247163fbe615178
+// >>>>>>> 771c07e11303f62d359085b2c247163fbe615178
       setMessages((prev) => [...prev, botReply]);
 
     } catch (err) {
