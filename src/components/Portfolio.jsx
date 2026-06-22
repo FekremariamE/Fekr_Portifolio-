@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Portfolio.css';
 import PortfolioItem from './PortfolioItem';
@@ -8,7 +8,6 @@ import img2 from './screenshot/002.jpg';
 import img3 from './screenshot/003.jpg';
 import img4 from './screenshot/004.jpg';
 import img5 from './screenshot/005.jpg';
-import img6 from './screenshot/006.jpg';
 import img7 from './screenshot/007.jpg';
 import img8 from './screenshot/008.jpg';
 import img9 from './screenshot/009.jpg';
@@ -26,17 +25,12 @@ import ML2 from './screenshot/Machine-Learning/ML2.jpeg'
 import MOH1 from './screenshot/MOH/MOH1.jpeg'
 import MOH2 from './screenshot/MOH/MOH2.jpeg'
 import MOH3 from './screenshot/MOH/MOH3.jpeg'
-import MOH4 from './screenshot/MOH/MOH4.jpeg'
 import MOH5 from './screenshot/MOH/MOH5.jpeg'
 import MOH6 from './screenshot/MOH/MOH6.jpeg'
 import MOH7 from './screenshot/MOH/MOH7.jpeg'
 
-
-
-
-
 function Portfolio() {
-  const portfolioItems = [
+  const portfolioItems = useMemo(() => [
     {
       id: 1,
       title: "Data Visualization Dashboard",
@@ -53,11 +47,7 @@ function Portfolio() {
       category: "Web Development",
       images: [MOH7, MOH6, MOH1, MOH2, MOH3,MOH5],
       headers: img8,
-// <<<<<<< HEAD
-//       github: "https://github.com/FekremariamE",
-// =======
       github: "https://github.com/FekremariamE/Fekr_Portifolio-",
-//>>>>>>> 771c07e11303f62d359085b2c247163fbe615178
     },
       {
       id: 5,
@@ -66,11 +56,7 @@ function Portfolio() {
       category: "Mobile App Development",
       images: [img4, img1, img2, img3, img5,img7],
       headers: img9,
-//<<<<<<< HEAD
-      //github: "https://github.com/FekremariamE",
-//=======
       github: "https://github.com/FekremariamE/Fekr_Portifolio-",
-//>>>>>>> 771c07e11303f62d359085b2c247163fbe615178
     },
     {
       id: 2,
@@ -78,55 +64,23 @@ function Portfolio() {
       description: "This project uses historical Tesla stock data to build a machine learning model that predicts future closing prices. It includes data cleaning, visualization, feature engineering, and regression modeling to forecast trends in TSLA stock.",
       category: "Machine Learning",
       images: [ML1, ML2,ML1, ML2,ML1, ML2],
-//       headers: ML2,
-// <<<<<<< HEAD
-//       github: "https://github.com/FekremariamE",
-// =======
+      headers: ML2,
       github: "https://github.com/FekremariamE/Fekr_Portifolio-",
-// >>>>>>> 771c07e11303f62d359085b2c247163fbe615178
     },
-    {
-      id: 3,
-      title: "Sales Forecast Tool",
-      description: "Predictive analytics for quarterly sales",
-      category: "Data Science",
-      images: ["/screenshots/forecast1.png", "/screenshots/forecast2.png"],
-      headers: img1,
-// <<<<<<< HEAD
-//       github: "https://github.com/FekremariamE",
-// =======
-      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
-// >>>>>>> 771c07e11303f62d359085b2c247163fbe615178
-    },
-    {
-      id: 4,
-      title: "Marketing Analytics Report",
-      description: "Comprehensive analysis of campaign performance",
-      category: "Business Intelligence",
-      images: ["/screenshots/marketing1.png", "/screenshots/marketing2.png", "/screenshots/marketing3.png"],
-//       headers: img1,
-// <<<<<<< HEAD
-//       github: "https://github.com/FekremariamE",
-// =======
-      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
-// >>>>>>> 771c07e11303f62d359085b2c247163fbe615178
-    },
-  
-   
-  ];
+  ], []);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isProjectOpen, setIsProjectOpen] = useState(false); // <-- new
   useEffect(() => {
     if (isProjectOpen) return; // Skip interval if a project is open
 
     const interval = setInterval(() => {
-      setCurrentIndex(prev =>
+      setCurrentIndex((prev) =>
         prev === portfolioItems.length - 1 ? 0 : prev + 1
       );
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [currentIndex, isProjectOpen]); // include isProjectOpen in deps
+  }, [isProjectOpen, portfolioItems.length]);
 
 
 
