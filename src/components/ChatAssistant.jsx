@@ -1,13 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { MessageCircle, Send, Sparkles, X } from 'lucide-react';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import { portfolioData } from './PortifolioData';
-import config from '../config.json';
 import './ChatAssistant.css';
 
-const API_KEY = config.API_KEY;
-const genAI = API_KEY ? new GoogleGenerativeAI(API_KEY) : null;
-const model = genAI?.getGenerativeModel({ model: 'gemini-1.5-flash' });
+const CHAT_API_URL = process.env.REACT_APP_CHAT_API_URL || 'http://localhost:5000/chat';
 
 const starterQuestions = [
   'What projects should I look at first?',
@@ -15,37 +11,22 @@ const starterQuestions = [
   'How can I contact him?',
 ];
 
-const buildPortfolioPrompt = (question) => {
-  const { name, role, bio, projects, skills } = portfolioData;
-  const projectSummary = projects
-    .map((project, index) => {
-      const technologies = project.technologies.join(', ');
-      return `${index + 1}. ${project.title} (${project.type}): ${project.description}. Technologies: ${technologies}.`;
-    })
-    .join('\n');
-
-  return `
-You are the portfolio assistant for ${name}, a ${role}.
-Answer in a confident, concise, friendly tone.
-Use only the portfolio details below. If the user asks about information that is not listed, say that it is not available in the portfolio yet and suggest contacting ${name}.
-
-Bio:
-${bio}
-
-Skills:
-${skills.join(', ')}
-
-Projects:
-${projectSummary}
-
-User question:
-${question}
-`;
-};
-
 const initialMessage = {
   role: 'assistant',
   content: `Hi, I'm ${portfolioData.name}'s portfolio assistant. Ask me about projects, skills, or the best way to collaborate.`,
+};
+
+const buildMessage = (role, content) => ({
+  role,
+  content,
+});
+
+const getErrorMessage = (error) => {
+  if (error instanceof Error && error.message) {
+    return error.message;
+  }
+
+  return 'I am having trouble connecting right now. You can still explore the portfolio sections for projects, skills, and contact details.';
 };
 
 function ChatAssistant() {
@@ -61,39 +42,50 @@ function ChatAssistant() {
     if (isOpen) {
       messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages, isOpen]);
+  }, [isOpen, messages]);
 
-  const appendAssistantMessage = (content) => {
+  const addMessage = (role, content) => {
     setMessages((currentMessages) => [
       ...currentMessages,
-      { role: 'assistant', content },
+      buildMessage(role, content),
     ]);
+  };
+
+  const requestChatReply = async (message) => {
+    const response = await fetch(CHAT_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message }),
+    });
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Chat request failed. Please try again.');
+    }
+
+    return data.reply || 'I could not generate a response right now.';
   };
 
   const sendMessage = async (messageText = input) => {
     const question = messageText.trim();
-    if (!question || isLoading) return;
 
-    setMessages((currentMessages) => [
-      ...currentMessages,
-      { role: 'user', content: question },
-    ]);
+    if (!question || isLoading) {
+      return;
+    }
+
+    addMessage('user', question);
     setInput('');
     setIsLoading(true);
 
     try {
-      if (!model) {
-        throw new Error('Gemini API key is missing.');
-      }
-
-      const result = await model.generateContent(buildPortfolioPrompt(question));
-      const responseText = result.response.text();
-      appendAssistantMessage(responseText || 'I could not generate a response right now.');
+      const reply = await requestChatReply(question);
+      addMessage('assistant', reply);
     } catch (error) {
       console.error('Chat assistant error:', error);
-      appendAssistantMessage(
-        'I am having trouble connecting right now. You can still explore the portfolio sections for projects, skills, and contact details.'
-      );
+      addMessage('assistant', getErrorMessage(error));
     } finally {
       setIsLoading(false);
     }
@@ -158,6 +150,7 @@ function ChatAssistant() {
                     key={question}
                     type="button"
                     onClick={() => handleStarterClick(question)}
+                    disabled={isLoading}
                   >
                     {question}
                   </button>
@@ -172,6 +165,7 @@ function ChatAssistant() {
                 <span />
               </div>
             )}
+
             <div ref={messagesEndRef} />
           </div>
 

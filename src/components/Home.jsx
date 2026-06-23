@@ -4,7 +4,7 @@ import anime from 'animejs/lib/anime.es.js';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart3, Code2, Database } from 'lucide-react';
 import { ReactComponent as Logo } from './file22.svg';
-import img from './img2.png';
+import img from './fekir.jpg';
 import ChatAssistant from './ChatAssistant';
 import Portfolio from './Portfolio';
 import './Home.css';
@@ -99,12 +99,13 @@ function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
+            
             <div className="logo-container" aria-hidden="true">
-              <svg viewBox="0 0 500 500">
+              <svg viewBox="0 100 500 500">
                 <defs>
                   <linearGradient id="hero-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#f97316" />
-                    <stop offset="100%" stopColor="#14b8a6" />
+                    <stop offset="0%" stopColor="#a85823" />
+                    <stop offset="100%" stopColor="#086959" />
                   </linearGradient>
                 </defs>
                 <Logo ref={svgRef} />

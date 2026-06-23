@@ -1,10 +1,28 @@
-.logo-container svg path,
-.logo-container svg line,
-.logo-container svg polyline,
-.logo-container svg polygon,
-.logo-container svg circle {
-  fill: none;
-  stroke: #222222;
-  stroke-width: 4;
-  visibility: visible;
+.experience-container {
+  width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.interactive-logo {
+  width: min(90vw, 1000px);
+  height: auto;
+
+  filter:
+    drop-shadow(0 0 10px #00e5ff)
+    drop-shadow(0 0 20px #00e5ff)
+    drop-shadow(0 0 40px #00e5ff);
+
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.interactive-logo:hover {
+  transform: scale(1.08);
 }
