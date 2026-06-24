@@ -223,7 +223,7 @@ const Contact = () => {
     setStatus({ message: 'Sending...', error: false });
 
     try {
-      const response = await axios.post('http://localhost:5000/contact', formData);
+      const response = await axios.post(ContactAPI_URL, formData);
 
       if (response.status === 200) {
         setStatus({ message: 'Message sent successfully!', error: false });
