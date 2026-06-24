@@ -135,7 +135,7 @@ let recipients = [];
   
 
     recipients = [
-      'fekirengida@gmail.com','fekremariamen@gmail.com'
+  'fekremariamen@gmail.com'
     ];
   
   
