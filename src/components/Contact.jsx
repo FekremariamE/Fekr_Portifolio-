@@ -207,6 +207,7 @@ const Contact = () => {
   });
   const [status, setStatus] = useState({ message: '', error: false });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const ContactAPI_URL = process.env.REACT_APP_CONTACT_API_URL || 'http://localhost:5000/contact';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
