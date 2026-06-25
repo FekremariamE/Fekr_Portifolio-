@@ -61,9 +61,20 @@ const portfolioData = {
     },
   ],
   skills: ["Python","JavaScript", "React", "Node.js","Java" ,"Kotlin","Express", "MongoDB", "SQL", "Git","PowerBI", "Seal Report Designer","XML","Csharp"],
-  contact: [{email: "fekirengida@gmail.com"},
-    {linkedin: "https://www.linkedin.com/in/fekremariam-engida-1a0b4b1a3/"},
-    {github: "https://github.com/fekirengida"}],
+  contact : [
+  {
+    method: "Email",
+    details: "fekirengida@gmail.com"
+  },
+  {
+    method: "LinkedIn",
+    details: "https://www.linkedin.com/in/fekremariam-engida/"
+  },
+  {
+    method: "GitHub",
+    details: "https://github.com/FekremariamE"
+  }
+]
 };
 
 // Function to create portfolio prompt
@@ -76,10 +87,9 @@ const createPortfolioPrompt = () => {
   prompt += `- **Bio:** ${bio}\n`;
   prompt += `- **Skills:** ${skills.join(", ")}\n`;
    prompt += `- **Contact:** \n`;
-  contact.forEach((type,index) => {
-    prompt += `  ${index + 1}. **${type.method}**: ${type.details}\n`;
-
-  });
+  contact.forEach((item) => {
+  prompt += `• ${item.method}: ${item.details}\n`;
+});
     
   prompt += `- **Projects:**\n`;
   projects.forEach((proj, index) => {
@@ -135,7 +145,7 @@ let recipients = [];
   
 
     recipients = [
-      'fekirengida@gmail.com','fekremariamen@gmail.com'
+      'fekremariamen@gmail.com'
     ];
   
   
