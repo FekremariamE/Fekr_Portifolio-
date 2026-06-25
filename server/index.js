@@ -61,9 +61,20 @@ const portfolioData = {
     },
   ],
   skills: ["Python","JavaScript", "React", "Node.js","Java" ,"Kotlin","Express", "MongoDB", "SQL", "Git","PowerBI", "Seal Report Designer","XML","Csharp"],
-  contact: [{email: "fekirengida@gmail.com"},
-    {linkedin: "https://www.linkedin.com/in/fekremariam-engida-1a0b4b1a3/"},
-    {github: "https://github.com/fekirengida"}],
+  contact : [
+  {
+    method: "Email",
+    details: "fekirengida@gmail.com"
+  },
+  {
+    method: "LinkedIn",
+    details: "https://www.linkedin.com/in/fekremariam-engida/"
+  },
+  {
+    method: "GitHub",
+    details: "https://github.com/FekremariamE"
+  }
+],
 };
 
 // Function to create portfolio prompt
@@ -75,11 +86,17 @@ const createPortfolioPrompt = () => {
   prompt += `\n\nHere is some information about me:\n`;
   prompt += `- **Bio:** ${bio}\n`;
   prompt += `- **Skills:** ${skills.join(", ")}\n`;
-   prompt += `- **Contact:** \n`;
-  contact.forEach((type,index) => {
-    prompt += `  ${index + 1}. **${type.method}**: ${type.details}\n`;
+   
+ prompt = `### Contact Information\n`;
 
-  });
+contact.forEach((item) => {
+  // Clean up URL formatting to look sharper for the user
+  let displayDetails = item.details
+    .replace(/^https?:\/\/(www\.)?/, '') // Removes http://, https://, and www.
+    .replace(/\/$/, '');                 // Removes trailing slashes
+
+  prompt += `* **${item.method}:** ${displayDetails}\n`;
+});
     
   prompt += `- **Projects:**\n`;
   projects.forEach((proj, index) => {
