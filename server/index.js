@@ -74,7 +74,11 @@ const portfolioData = {
     method: "GitHub",
     details: "https://github.com/FekremariamE"
   }
+<<<<<<< HEAD
 ]
+=======
+],
+>>>>>>> 8be1471fd8f17305e64a1ac45db6b957d59cf934
 };
 
 // Function to create portfolio prompt
@@ -86,9 +90,22 @@ const createPortfolioPrompt = () => {
   prompt += `\n\nHere is some information about me:\n`;
   prompt += `- **Bio:** ${bio}\n`;
   prompt += `- **Skills:** ${skills.join(", ")}\n`;
+<<<<<<< HEAD
    prompt += `- **Contact:** \n`;
   contact.forEach((item) => {
   prompt += `• ${item.method}: ${item.details}\n`;
+=======
+   
+ prompt = `### Contact Information\n`;
+
+contact.forEach((item) => {
+  // Clean up URL formatting to look sharper for the user
+  let displayDetails = item.details
+    .replace(/^https?:\/\/(www\.)?/, '') // Removes http://, https://, and www.
+    .replace(/\/$/, '');                 // Removes trailing slashes
+
+  prompt += `* **${item.method}:** ${displayDetails}\n`;
+>>>>>>> 8be1471fd8f17305e64a1ac45db6b957d59cf934
 });
     
   prompt += `- **Projects:**\n`;
@@ -145,7 +162,11 @@ let recipients = [];
   
 
     recipients = [
+<<<<<<< HEAD
       'fekremariamen@gmail.com'
+=======
+  'fekremariamen@gmail.com'
+>>>>>>> 8be1471fd8f17305e64a1ac45db6b957d59cf934
     ];
   
   
