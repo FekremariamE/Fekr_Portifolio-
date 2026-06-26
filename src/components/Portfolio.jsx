@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Portfolio.css';
 import PortfolioItem from './PortfolioItem';
+import { portfolioData } from './PortifolioData';
 
 import img1 from './screenshot/001.jpg';
 import img2 from './screenshot/002.jpg';
@@ -28,6 +29,11 @@ import MOH3 from './screenshot/MOH/MOH3.jpeg'
 import MOH5 from './screenshot/MOH/MOH5.jpeg'
 import MOH6 from './screenshot/MOH/MOH6.jpeg'
 import MOH7 from './screenshot/MOH/MOH7.jpeg'
+
+import pms1 from './screenshot/Hotel -pms/1.jpeg'
+import pms2 from './screenshot/Hotel -pms/2.jpeg'
+import pms3 from './screenshot/Hotel -pms/3.jpeg'
+import pms4 from './screenshot/Hotel -pms/4.jpeg'
 
 function Portfolio() {
   const portfolioItems = useMemo(() => [
@@ -65,6 +71,33 @@ function Portfolio() {
       category: "Machine Learning",
       images: [ML1, ML2,ML1, ML2,ML1, ML2],
       headers: ML2,
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
+    },
+    //   {
+    //   id: 7,
+    //   title: portfolioData.projects[4].title,
+    //   description: portfolioData.projects[4].description,
+    //   category: portfolioData.projects[4].type,
+    //   images: [ML1, ML2,ML1, ML2,ML1, ML2],
+    //   headers: ML2,
+    //   github: "https://github.com/FekremariamE/Fekr_Portifolio-",
+    // },
+      {
+      id: 8,
+      title: portfolioData.projects[5].title,
+      description: portfolioData.projects[5].description,
+      category: portfolioData.projects[5].type,
+      images: [pms1, pms2, pms3, pms4],
+      headers: pms1,
+      github: "https://github.com/FekremariamE/Fekr_Portifolio-",
+    },
+      {
+      id: 9,
+     title: portfolioData.projects[6].title,
+      description: portfolioData.projects[6].description,
+      category: portfolioData.projects[6].type,
+      images: [pms1, pms2, pms3, pms4],
+      headers: pms2,
       github: "https://github.com/FekremariamE/Fekr_Portifolio-",
     },
   ], []);

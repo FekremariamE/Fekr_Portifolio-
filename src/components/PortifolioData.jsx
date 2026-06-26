@@ -33,6 +33,18 @@ export const portfolioData = {
             description: "My personal portfolio website, designed to showcase my skills and projects. Built with React and styled with Tailwind CSS.",
             technologies: ["React", "Tailwind CSS"],
         },
+          {
+            title: "Hotel PMS",
+            type: "Software Application",
+            description: "software that manages hotel operations like reservations, check-in/check-out, room availability, guest details, housekeeping, and billing in one system. It also connects with online booking channels and provides reports to improve efficiency and decision-making.",
+            technologies: ["Node.js", "React.js", "Express.js"],
+        },
+          {
+            title: "Luxury Booking",
+            type: "Software Application",
+            description: "premium reservation platform for high-end hotels that manages bookings, availability, guest preferences, VIP services, and payments in one place. It ensures a smooth, personalized experience and integrates with online booking channels while maintaining top-tier service quality..",
+            technologies: ["Node.js", "React.js", "Express.js"],
+        },
     ],
     skills: ["Python","JavaScript", "React", "Node.js","Java" ,"Kotlin","Express", "MongoDB", "SQL", "Git","PowerBI", "Seal Report Designer","XML","Csharp"],
 };
