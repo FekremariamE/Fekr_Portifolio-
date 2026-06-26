@@ -35,6 +35,15 @@ import pms2 from './screenshot/Hotel -pms/2.jpeg'
 import pms3 from './screenshot/Hotel -pms/3.jpeg'
 import pms4 from './screenshot/Hotel -pms/4.jpeg'
 
+
+import lux1 from './screenshot/luxe/lux1.png'
+import lux2 from './screenshot/luxe/lux2.png'
+import lux3 from './screenshot/luxe/lux3.png'
+import lux5 from './screenshot/luxe/lux5.png'
+import lux7 from './screenshot/luxe/lux7.png'
+import lux8 from './screenshot/luxe/lux8.png'
+
+
 function Portfolio() {
   const portfolioItems = useMemo(() => [
     {
@@ -96,8 +105,8 @@ function Portfolio() {
      title: portfolioData.projects[6].title,
       description: portfolioData.projects[6].description,
       category: portfolioData.projects[6].type,
-      images: [pms1, pms2, pms3, pms4],
-      headers: pms2,
+      images: [lux1, lux2, lux3, lux5, lux7, lux8],
+      headers: lux1,
       github: "https://github.com/FekremariamE/Fekr_Portifolio-",
     },
   ], []);
