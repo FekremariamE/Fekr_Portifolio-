@@ -147,7 +147,7 @@ function Portfolio() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      <h1 className="portfolio-title">My Data Analytics Portfolio</h1>
+      <h1 className="portfolio-title">My Data Analytics and Others Portfolio</h1>
 
       <div >
         <AnimatePresence mode="wait">
